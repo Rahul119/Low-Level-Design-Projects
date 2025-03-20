@@ -1,7 +1,9 @@
 package com.scaler.parkinglot.DTO;
 
 import com.scaler.parkinglot.Models.ParkingSpot;
+import lombok.Getter;
 
+@Getter
 public class CreateParkingLotRequest {
 
     private String name;
