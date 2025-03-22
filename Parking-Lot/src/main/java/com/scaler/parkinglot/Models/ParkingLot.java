@@ -1,8 +1,13 @@
 package com.scaler.parkinglot.Models;
 
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
+
+import java.security.cert.CertPathBuilder;
 import java.util.ArrayList;
 import java.util.List;
-
+@SuperBuilder
+@Getter
 public class ParkingLot extends BaseModel {
 
     private String name;
@@ -14,6 +19,5 @@ public class ParkingLot extends BaseModel {
     private List<Gate> exitGates = new ArrayList<>();
 
     private DisplayBoard displayBoard;
-
 
 }

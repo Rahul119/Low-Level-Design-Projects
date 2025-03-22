@@ -1,5 +1,6 @@
 package com.scaler.parkinglot.DTO;
 
+import com.scaler.parkinglot.Models.ParkingLot;
 import com.scaler.parkinglot.Models.ParkingSpot;
 import lombok.Getter;
 
@@ -14,4 +15,8 @@ public class CreateParkingLotRequest {
 
     private Integer numberOfEntryGates;
     private Integer numberOfExitGates;
+
+    public ParkingLot toParkingLot() {
+        return null();
+    }
 }

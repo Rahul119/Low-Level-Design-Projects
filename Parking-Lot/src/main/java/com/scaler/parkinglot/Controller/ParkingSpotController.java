@@ -9,6 +9,7 @@ public class ParkingSpotController {
 
     public ParkingSpot createParkingSpot(ParkingSpot parkingSpot) {
 
+        return parkingSpot;
     }
 
     // Update a Parking Spot
@@ -19,6 +20,7 @@ public class ParkingSpotController {
 
     public ParkingSpot getParkingSpot(Long parkingSpotId){
 
+        return null;
     }
 
     // Delete a Parking Spot

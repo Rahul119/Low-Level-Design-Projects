@@ -4,5 +4,7 @@ import com.scaler.parkinglot.Models.ParkingSpot;
 
 public class ParkingSpotService {
 
-    public ParkingSpot createParkingSpot(ParkingSpot parkingSpot) {}
+    public ParkingSpot createParkingSpot(ParkingSpot parkingSpot) {
+        return parkingSpot;
+    }
 }
