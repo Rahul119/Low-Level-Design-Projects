@@ -2,18 +2,18 @@ package com.scaler.parkinglot.Controller;
 
 import com.scaler.parkinglot.DTO.CreateParkingLotRequest;
 import com.scaler.parkinglot.Models.ParkingLot;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import static org.apache.catalina.startup.ExpandWar.validate;
 
 //Step 1- Add RestController Annotation
-
+@AllArgsConstructor
 @RestController// to know spring this is the controller
 @RequestMapping("/api/v1/parking-lot")//Step- 2 Map all the request for this url to this controller
 public class ParkingLotController {
 
-
-    private ParkingLotService parkingLotService = new ParkingLotService();
+    private ParkingLotService parkingLotService;
     //Create parking Log
     //Post
     //1. One of the work of Controller is Request Validation
@@ -34,7 +34,7 @@ public class ParkingLotController {
     }
 
     private void validate(CreateParkingLotRequest request) {
-        if (request.getNumberOfFloors() < 0){
+        if (request.getNumberOfFloors() == null){
             throw new RuntimeException("Invalid number of floors");
         }
     }

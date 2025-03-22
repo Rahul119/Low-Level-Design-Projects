@@ -17,6 +17,6 @@ public class CreateParkingLotRequest {
     private Integer numberOfExitGates;
 
     public ParkingLot toParkingLot() {
-        return null();
+        return null;
     }
 }
