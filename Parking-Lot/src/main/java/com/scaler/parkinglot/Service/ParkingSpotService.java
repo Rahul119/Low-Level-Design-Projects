@@ -5,22 +5,34 @@ import com.scaler.parkinglot.Repository.ParkingLotRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class ParkingSpotService {
 
     private ParkingSpotRepository parkingSpotRepository = new ParkingSpotRepository();
 
-    private ParkingLotRepository parkingLotRepository;
-    private ParkingSpotService parkingSpotService;
-
-    public ParkingLot create(ParkingLot parkingLot){
-        ParkingLot persistedLot = parkingLotRepository.save(parkingLot);
-        parkingSpotService.createParkingSpot(persistedLot);
-        return persistedLot;
+    public ParkingSpot allocateSlot(Long parkingLotId, VehicleType vehicleType) {
+        return parkingSpotRepository.findOneByVehicleTypeAndStatusAvailable(vehicleType);
     }
 
-    public ParkingLot get(Long id){
-        return ParkingLot.builder().build();
+    public ParkingSpot update(ParkingSpot filledSpot) {
+        return parkingSpotRepository.update(filledSpot);
     }
+    public void createParkingSpots(ParkingLot lot) {
+        List<ParkingSpot> parkingSpots = lot.getFloors()
+                .stream()
+                .flatMap(floor -> floor.getSpots().stream())
+                .collect(Collectors.toList());
+        parkingSpotRepository.saveAll(parkingSpots);
+    }
+    public List<ParkingSpot> getParkingSpots(Long id) {
+        return parkingSpotRepository.findAllByParkingLotId(id);
+    }
+
+    public ParkingSpot getParkingSpot(Long id) {
+        return parkingSpotRepository.findOneById(id);
+    }
+
 }

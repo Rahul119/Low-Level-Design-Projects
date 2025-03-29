@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import static sun.rmi.registry.RegistryImpl.getID;
+//import static sun.rmi.registry.RegistryImpl.getID;
 
 @Repository
 public class ParkingSpotRepository {
@@ -52,14 +52,16 @@ public class ParkingSpotRepository {
         System.out.println("Parking Spots: " + parkingSpots);
     }
 
-    public List<ParkingSpot> findAllByParkingLotId(Long Id){
+    public List<ParkingSpot> findAllByParkingLotId(Long Id) {
+        return parkingSpots;
+    }
+
+    public ParkingSpot findOneById(Long id) {
         return parkingSpots
                 .stream()
                 .filter(spot -> spot.getId().equals(id))
                 .findFirst()
                 .get();
-
     }
-
 
 }
