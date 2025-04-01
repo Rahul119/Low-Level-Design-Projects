@@ -3,7 +3,11 @@ package com.scaler.parkinglot.Service;
 
 import com.scaler.parkinglot.Models.ParkingLot;
 import com.scaler.parkinglot.Repository.ParkingLotRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
+@Service
 public class ParkingLotService {
 
     private ParkingLotRepository parkingLotRepository;
@@ -11,7 +15,7 @@ public class ParkingLotService {
 
     public ParkingLot create(ParkingLot parkingLot){
         ParkingLot persistedLot = parkingLotRepository.save(parkingLot);
-        parkingSpotService.createParkingSpot(persistedLot);
+        parkingSpotService.createParkingSpots(persistedLot);
         return persistedLot;
     }
 

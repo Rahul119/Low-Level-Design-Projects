@@ -1,22 +1,22 @@
 package com.scaler.parkinglot.Models;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @Getter
+@Setter
 public class ParkingSpot extends BaseModel{
 
-    private Long spotId;
     private Long floorId;
-
     private VehicleType vehicleType;
-    private SportStatus sportStatus;
+    private SpotStatus spotStatus;
 
     public static ParkingSpot mediumAvailable(){
         return ParkingSpot.builder()
                 .vehicleType(VehicleType.MEDIUM)
-                .sportStatus(SportStatus.AVAILABLE)
+                .spotStatus(SpotStatus.AVAILABLE)
                 .build();
     }
 }

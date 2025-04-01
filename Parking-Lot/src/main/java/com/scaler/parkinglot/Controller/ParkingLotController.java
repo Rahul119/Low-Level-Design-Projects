@@ -2,6 +2,7 @@ package com.scaler.parkinglot.Controller;
 
 import com.scaler.parkinglot.DTO.CreateParkingLotRequest;
 import com.scaler.parkinglot.Models.ParkingLot;
+import com.scaler.parkinglot.Service.ParkingLotService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

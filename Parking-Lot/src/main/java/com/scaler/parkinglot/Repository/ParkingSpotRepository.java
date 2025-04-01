@@ -1,6 +1,5 @@
 package com.scaler.parkinglot.Repository;
 
-import com.scaler.parkinglot.Models.ParkingLot;
 import com.scaler.parkinglot.Models.ParkingSpot;
 import com.scaler.parkinglot.Models.VehicleType;
 import org.springframework.stereotype.Repository;
@@ -30,7 +29,7 @@ public class ParkingSpotRepository {
         return null;
     }
 
-    public ParkingSpot update(ParkingLot filledSpot){
+    public ParkingSpot update(ParkingSpot filledSpot){
         ParkingSpot currentSpot = parkingSpots
                 .stream()
                 .filter(spot->spot.getId().equals(filledSpot.getId()))

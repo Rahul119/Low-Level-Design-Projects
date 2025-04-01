@@ -1,11 +1,14 @@
 package com.scaler.parkinglot.Service;
 import com.scaler.parkinglot.Models.ParkingLot;
 import com.scaler.parkinglot.Models.ParkingSpot;
+import com.scaler.parkinglot.Models.VehicleType;
 import com.scaler.parkinglot.Repository.ParkingLotRepository;
+import com.scaler.parkinglot.Repository.ParkingSpotRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
