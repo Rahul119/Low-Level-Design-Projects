@@ -3,6 +3,7 @@ package com.scaler.parkinglot.Repository;
 import com.scaler.parkinglot.Models.ParkingSpot;
 import com.scaler.parkinglot.Models.VehicleType;
 import org.springframework.stereotype.Repository;
+import com.scaler.parkinglot.Models.SpotStatus;
 
 import java.util.ArrayList;
 import java.util.List;

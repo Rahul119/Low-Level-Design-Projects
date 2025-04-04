@@ -19,17 +19,21 @@ public class TicketService {
 
     private TicketRepository ticketRepository;
 
-    public Ticket createTicket(CreateTicketRequest ticket) {
-        //Check if Parking lot is full.
+    public Ticket createTicket(CreateTicketRequest request) {
+
+        // Check if parking lot is full
         ParkingSpot parkingSpot = parkingSpotService.allocateSlot(request.getParkingLotId(), request.getVehicleType());
         if (parkingSpot == null) {
-            throw new RuntimeException("Slot not Available");
+            throw new RuntimeException("Slot not available!");
         }
 
         //update slot status
         parkingSpot.setSpotStatus(SpotStatus.OCCUPIED);
 
         //Persist slot
+        parkingSpotService.update(parkingSpot);
+
+        //create and persist ticket
         Ticket ticket = Ticket
                 .builder()
                 .entryTime(new Date())
