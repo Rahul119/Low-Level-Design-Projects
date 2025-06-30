@@ -1,5 +1,6 @@
 package com.scaler.bookmyshow.Models;
 
+import com.scaler.bookmyshow.Enums.BookingStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,7 +20,7 @@ public class Booking extends BaseModel{
     private Customer customer;
     @ManyToOne
     private Show show;
-    ManyToMany
+    @ManyToMany
     private List<ShowSeat> seats = new ArrayList<>();
 
 

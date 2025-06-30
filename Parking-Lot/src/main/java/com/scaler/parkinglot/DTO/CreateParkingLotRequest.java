@@ -1,5 +1,8 @@
 package com.scaler.parkinglot.DTO;
 
+import com.scaler.parkinglot.Generators.ParkingFloorId;
+import com.scaler.parkinglot.Generators.ParkingLotId;
+import com.scaler.parkinglot.Generators.ParkingSpotId;
 import com.scaler.parkinglot.Models.*;
 import lombok.Getter;
 

@@ -1,9 +1,7 @@
 package com.scaler.bookmyshow.Models;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.scaler.bookmyshow.Enums.SeatStatus;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -11,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 public class ShowSeat extends BaseModel {
     @ManyToOne
     @JoinColumn(name = "show_id")

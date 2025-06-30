@@ -1,5 +1,6 @@
 package com.scaler.bookmyshow.Models;
 
+import com.scaler.bookmyshow.Enums.Language;
 import com.scaler.bookmyshow.Enums.MovieFeature;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -12,18 +13,24 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true)
+@NoArgsConstructor
+@Builder
 @Entity
-public class Hall extends BaseModel {
+public class Movie extends BaseModel {
 
     private String name;
-
-    @OneToMany(mappedBy = "hall")
-    private List<Seat> seats = new ArrayList<>();
+    private Double rating;
 
     @ElementCollection
     @Enumerated
+    private List<Language> languages = new ArrayList<>();
+
+    @Enumerated
+    @ElementCollection
     private List<MovieFeature> features = new ArrayList<>();
+
+    @OneToMany(mappedBy = "movie")
+    private List<Show> shows = new ArrayList<>();
+
 }
